@@ -188,7 +188,7 @@ class CreateOpexManifest
   # create an array of all subdirectories
   def enumerate_dirs(dirs, base_dir)
     dirs.each do |dir|
-      next if dir.to_s.sub(base_dir + '/','') == '.'
+      next if dir.to_s.sub(base_dir + '/','') == '.' || dir.to_s.end_with?('.')
       next unless dir.to_s.match(@@files_to_skip).nil?
       @@opex_folders << dir.to_s.sub(base_dir + '/','')
     end
